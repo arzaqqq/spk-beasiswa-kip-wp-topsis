@@ -16,19 +16,19 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div class="bg-white rounded-lg shadow p-4">
             <h3 class="text-gray-500 font-medium">Total Pendaftar</h3>
-            <p class="text-2xl font-bold">1,245</p>
+            <p class="text-2xl font-bold">0</p>
         </div>
         <div class="bg-white rounded-lg shadow p-4">
             <h3 class="text-gray-500 font-medium">Proses Seleksi</h3>
-            <p class="text-2xl font-bold">856</p>
+            <p class="text-2xl font-bold">0</p>
         </div>
         <div class="bg-white rounded-lg shadow p-4">
             <h3 class="text-gray-500 font-medium">Diterima</h3>
-            <p class="text-2xl font-bold">120</p>
+            <p class="text-2xl font-bold">0</p>
         </div>
         <div class="bg-white rounded-lg shadow p-4">
             <h3 class="text-gray-500 font-medium">Ditolak</h3>
-            <p class="text-2xl font-bold">269</p>
+            <p class="text-2xl font-bold">0</p>
         </div>
     </div>
 
@@ -309,7 +309,7 @@
 
         <!-- Tingkat Prestasi -->
         <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-lg font-bold mb-3 text-gray-800">Tabel Jumlah Prestasi (C6)</h3>
+            <h3 class="text-lg font-bold mb-3 text-gray-800">Tabel Jumlah Prestasi non-akademik (C6)</h3>
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
@@ -319,7 +319,7 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr>
-                        <td class="px-4 py-2 whitespace-nowrap">3</td>
+                        <td class="px-4 py-2 whitespace-nowrap">3></td>
                         <td class="px-4 py-2 whitespace-nowrap">5</td>
                     </tr>
                     <tr>
@@ -340,7 +340,7 @@
 
         <!-- Jumlah Prestasi -->
         <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-lg font-bold mb-3 text-gray-800">Tabel Jumlah Prestasi (C7)</h3>
+            <h3 class="text-lg font-bold mb-3 text-gray-800">Tabel tingkat juara Prestasi terbaik(C7)</h3>
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
