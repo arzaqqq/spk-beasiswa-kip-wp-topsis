@@ -2,11 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\AlternatifController;
 
 Route::get('/', function () {
     return view('layouts.app');
 });
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function(){
         return view('dashboard');
@@ -20,4 +24,7 @@ Route::get('kriteria/{kriteria}/edit', [KriteriaController::class, 'edit'])->nam
 Route::put('kriteria/{kriteria}', [KriteriaController::class, 'update'])->name('kriteria.update');
 Route::delete('kriteria/{kriteria}', [KriteriaController::class, 'destroy'])->name('kriteria.destroy');
 
-;
+Route::resource('alternatif',AlternatifController::class);
+Route::delete('alternatif', [AlternatifController::class, 'destroyall'])->name('alternatif.destroyall');
+
+
