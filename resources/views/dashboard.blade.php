@@ -145,11 +145,11 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Tidak Kerja</td>
-                        <td class="px-4 py-2 whitespace-nowrap">5</td>
+                        <td class="px-4 py-2 whitespace-nowrap">1</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Nelayan / petani</td>
-                        <td class="px-4 py-2 whitespace-nowrap">4</td>
+                        <td class="px-4 py-2 whitespace-nowrap">2</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Swasta / wiraswasta</td>
@@ -157,11 +157,11 @@
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Lainnya</td>
-                        <td class="px-4 py-2 whitespace-nowrap">2</td>
+                        <td class="px-4 py-2 whitespace-nowrap">4</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Kosong/tidak diisi</td>
-                        <td class="px-4 py-2 whitespace-nowrap">1</td>
+                        <td class="px-4 py-2 whitespace-nowrap">5</td>
                     </tr>
                 </tbody>
             </table>
@@ -180,11 +180,11 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Tidak Kerja</td>
-                        <td class="px-4 py-2 whitespace-nowrap">5</td>
+                        <td class="px-4 py-2 whitespace-nowrap">1</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Nelayan / petani</td>
-                        <td class="px-4 py-2 whitespace-nowrap">4</td>
+                        <td class="px-4 py-2 whitespace-nowrap">2</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Swasta / wiraswasta</td>
@@ -192,11 +192,11 @@
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Lainnya</td>
-                        <td class="px-4 py-2 whitespace-nowrap">2</td>
+                        <td class="px-4 py-2 whitespace-nowrap">4</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Kosong/ tidak diisi</td>
-                        <td class="px-4 py-2 whitespace-nowrap">1</td>
+                        <td class="px-4 py-2 whitespace-nowrap">5</td>
                     </tr>
                 </tbody>
             </table>
@@ -215,11 +215,11 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">0 - Rp 1.000.000</td>
-                        <td class="px-4 py-2 whitespace-nowrap">5</td>
+                        <td class="px-4 py-2 whitespace-nowrap">1</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Rp 1.000.000 - Rp 2.000.000</td>
-                        <td class="px-4 py-2 whitespace-nowrap">4</td>
+                        <td class="px-4 py-2 whitespace-nowrap">2</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Rp 2.000.000 - Rp 3.000.000</td>
@@ -227,11 +227,11 @@
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Rp 3.000.000 - > Rp 4.000.000</td>
-                        <td class="px-4 py-2 whitespace-nowrap">2</td>
+                        <td class="px-4 py-2 whitespace-nowrap">4</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2 whitespace-nowrap">Tidak diisi</td>
-                        <td class="px-4 py-2 whitespace-nowrap">1</td>
+                        <td class="px-4 py-2 whitespace-nowrap">5</td>
                     </tr>
                 </tbody>
             </table>

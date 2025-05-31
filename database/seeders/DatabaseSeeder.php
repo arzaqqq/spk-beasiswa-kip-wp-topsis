@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
 
          $this->call(KriteriaSeeder::class);
          $this->call(AlternatifSeeder::class);
+         $this->call(PenilaianSeeder::class);
         // User::factory(10)->create();
 
         // User::factory()->create([

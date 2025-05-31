@@ -287,7 +287,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="{{ route('perhitungan.topsis') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Perhitungan Topsis</p>
                 </a>

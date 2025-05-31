@@ -43,23 +43,23 @@
                             <h4 class="text-sm font-semibold text-gray-700 mb-2">Keterangan Nilai ({{ $k->kode }}):</h4>
                             <ul class="text-sm text-gray-600 space-y-1">
                                 @if($k->kode == 'C1') <!-- Pekerjaan Ayah -->
-                                    <li><span class="font-medium">5:</span> Tidak Kerja</li>
-                                    <li><span class="font-medium">4:</span> Nelayan / Petani</li>
+                                    <li><span class="font-medium">1:</span> Tidak Kerja</li>
+                                    <li><span class="font-medium">2:</span> Nelayan / Petani</li>
                                     <li><span class="font-medium">3:</span> Swasta / Wiraswasta</li>
-                                    <li><span class="font-medium">2:</span> Lainnya</li>
-                                    <li><span class="font-medium">1:</span> Kosong / Tidak Diisi</li>
+                                    <li><span class="font-medium">4:</span> Lainnya</li>
+                                    <li><span class="font-medium">5:</span> Kosong / Tidak Diisi</li>
                                 @elseif($k->kode == 'C2') <!-- Pekerjaan Ibu -->
-                                    <li><span class="font-medium">5:</span> Tidak Kerja</li>
-                                    <li><span class="font-medium">4:</span> Nelayan / Petani</li>
+                                    <li><span class="font-medium">1:</span> Tidak Kerja</li>
+                                    <li><span class="font-medium">2:</span> Nelayan / Petani</li>
                                     <li><span class="font-medium">3:</span> Swasta / Wiraswasta</li>
-                                    <li><span class="font-medium">2:</span> Lainnya</li>
-                                    <li><span class="font-medium">1:</span> Kosong / Tidak Diisi</li>
+                                    <li><span class="font-medium">4:</span> Lainnya</li>
+                                    <li><span class="font-medium">5:</span> Kosong / Tidak Diisi</li>
                                 @elseif($k->kode == 'C3') <!-- Penghasilan Orang Tua -->
-                                    <li><span class="font-medium">5:</span> 0 - Rp 1.000.000</li>
-                                    <li><span class="font-medium">4:</span> Rp 1.000.000 - Rp 2.000.000</li>
+                                    <li><span class="font-medium">1:</span> 0 - Rp 1.000.000</li>
+                                    <li><span class="font-medium">2:</span> Rp 1.000.000 - Rp 2.000.000</li>
                                     <li><span class="font-medium">3:</span> Rp 2.000.000 - Rp 3.000.000</li>
-                                    <li><span class="font-medium">2:</span> Rp 3.000.000 - > Rp 4.000.000</li>
-                                    <li><span class="font-medium">1:</span> Tidak Diisi</li>
+                                    <li><span class="font-medium">4:</span> Rp 3.000.000 - > Rp 4.000.000</li>
+                                    <li><span class="font-medium">5:</span> Tidak Diisi</li>
                                 @elseif($k->kode == 'C4') <!-- Tanggungan Orang Tua -->
                                     <li><span class="font-medium">5:</span> > 4 Orang</li>
                                     <li><span class="font-medium">4:</span> 4 Orang</li>

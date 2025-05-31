@@ -24,7 +24,7 @@
                         <td>{{ $kriteria->kode }}</td>
                         <td>{{ $kriteria->nama }}</td>
                         <td>{{ $kriteria->bobot }}</td>
-                        <td>{{ ucfirst($kriteria->tipe) }}</td>
+                        <td>{{ ucfirst($kriteria->jenis) }}</td>
                         <td>{{ number_format($normalizedWeights[$kriteria->id], 4) }}</td>
                     </tr>
                 @endforeach
