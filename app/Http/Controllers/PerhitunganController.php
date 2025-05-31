@@ -180,4 +180,153 @@ class PerhitunganController extends Controller
             'dPlus', 'dMinus', 'nilaiV', 'ranking'
         ));
     }
+
+    public function rekomendasi()
+    {
+        $alternatifs = Alternatif::all();
+        $kriterias = Kriteria::all();
+        $penilaians = Penilaian::all();
+
+        if ($alternatifs->isEmpty() || $kriterias->isEmpty()) {
+            throw new \Exception('Alternatif atau Kriteria tidak ditemukan.');
+        }
+
+        // Validasi jenis kriteria
+        foreach ($kriterias as $kriteria) {
+            if (!in_array($kriteria->jenis, ['cost', 'benefit'])) {
+                throw new \Exception("Jenis kriteria {$kriteria->kode} tidak valid: {$kriteria->jenis}");
+            }
+        }
+
+        // Hitung WP
+        $totalBobot = $kriterias->sum('bobot');
+        if ($totalBobot == 0) {
+            throw new \Exception('Total bobot tidak boleh nol.');
+        }
+        $normalizedWeights = $kriterias->mapWithKeys(function ($kriteria) use ($totalBobot) {
+            return [$kriteria->id => $kriteria->bobot / $totalBobot];
+        });
+
+        $nilaiS = [];
+        foreach ($alternatifs as $alt) {
+            $product = 1;
+            foreach ($kriterias as $kriteria) {
+                $penilaian = $penilaians->where('alternatif_id', $alt->id)
+                                        ->where('kriteria_id', $kriteria->id)
+                                        ->first();
+                if (!$penilaian) {
+                    throw new \Exception("Nilai untuk alternatif {$alt->id} dan kriteria {$kriteria->id} tidak ditemukan.");
+                }
+                $nilai = $penilaian->nilai;
+                if ($nilai == 0) {
+                    throw new \Exception("Nilai untuk alternatif {$alt->id} dan kriteria {$kriteria->id} tidak boleh nol.");
+                }
+                $bobot = $normalizedWeights[$kriteria->id];
+                $pangkat = $kriteria->jenis === 'cost' ? -$bobot : $bobot;
+                $product *= pow($nilai, $pangkat);
+            }
+            $nilaiS[$alt->id] = $product;
+        }
+
+        $totalS = array_sum($nilaiS);
+        if ($totalS == 0) {
+            throw new \Exception('Total S tidak boleh nol.');
+        }
+        $nilaiV_wp = [];
+        foreach ($nilaiS as $id => $s) {
+            $nilaiV_wp[$id] = $s / $totalS;
+        }
+
+        // Hitung TOPSIS
+        $matriks = [];
+        $pembagi = [];
+        foreach ($kriterias as $k) {
+            $sumKuadrat = 0;
+            foreach ($alternatifs as $a) {
+                $penilaian = $penilaians->where('alternatif_id', $a->id)
+                                        ->where('kriteria_id', $k->id)
+                                        ->first();
+                if (!$penilaian) {
+                    throw new \Exception("Nilai untuk alternatif {$a->id} dan kriteria {$k->id} tidak ditemukan.");
+                }
+                $nilai = $penilaian->nilai;
+                $matriks[$a->id][$k->id] = $nilai;
+                $sumKuadrat += pow($nilai, 2);
+            }
+            $pembagi[$k->id] = sqrt($sumKuadrat);
+            if ($pembagi[$k->id] == 0) {
+                throw new \Exception("Pembagi untuk kriteria {$k->id} tidak boleh nol.");
+            }
+        }
+
+        $terbobot = [];
+        foreach ($alternatifs as $a) {
+            foreach ($kriterias as $k) {
+                $normal = $matriks[$a->id][$k->id] / $pembagi[$k->id];
+                $terbobot[$a->id][$k->id] = $normal * $k->bobot;
+            }
+        }
+
+        $idealPositif = [];
+        $idealNegatif = [];
+        foreach ($kriterias as $k) {
+            $kolom = array_column($terbobot, $k->id);
+            $idealPositif[$k->id] = $k->jenis === 'benefit' ? max($kolom) : min($kolom);
+            $idealNegatif[$k->id] = $k->jenis === 'benefit' ? min($kolom) : max($kolom);
+        }
+
+        $dPlus = [];
+        $dMinus = [];
+        foreach ($alternatifs as $a) {
+            $plus = 0;
+            $minus = 0;
+            foreach ($kriterias as $k) {
+                $val = $terbobot[$a->id][$k->id];
+                $plus += pow($val - $idealPositif[$k->id], 2);
+                $minus += pow($val - $idealNegatif[$k->id], 2);
+            }
+            $dPlus[$a->id] = sqrt($plus);
+            $dMinus[$a->id] = sqrt($minus);
+        }
+
+        $nilaiV_topsis = [];
+        foreach ($alternatifs as $a) {
+            $sumDistances = $dPlus[$a->id] + $dMinus[$a->id];
+            $nilaiV_topsis[$a->id] = $sumDistances == 0 ? 0 : $dMinus[$a->id] / $sumDistances;
+        }
+
+        // Gabungkan hasil WP dan TOPSIS
+        $rekomendasi = [];
+        foreach ($alternatifs as $alt) {
+            $wp_score = $nilaiV_wp[$alt->id] ?? 0;
+            $topsis_score = $nilaiV_topsis[$alt->id] ?? 0;
+            // Total: rata-rata WP dan TOPSIS (bisa disesuaikan, misalnya bobot 0.5:0.5)
+            $total_score = ($wp_score + $topsis_score) / 2;
+
+            $rekomendasi[] = [
+                'kode' => $alt->kode,
+                'nama' => $alt->nama,
+                'nomor_induk' => $alt->nomor_induk,
+                'wp_score' => $wp_score,
+                'topsis_score' => $topsis_score,
+                'total_score' => $total_score,
+            ];
+        }
+
+        // Urutkan berdasarkan total_score (descending)
+        usort($rekomendasi, function ($a, $b) {
+            return $b['total_score'] <=> $a['total_score'];
+        });
+
+        // Tambahkan peringkat
+        foreach ($rekomendasi as $index => &$item) {
+            $item['peringkat'] = $index + 1;
+        }
+
+        Log::info('Rekomendasi Results', [
+            'rekomendasi' => $rekomendasi,
+        ]);
+
+        return view('perhitungan.rekomendasi', compact('rekomendasi'));
+    }
 }
