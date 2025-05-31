@@ -37,4 +37,8 @@ class Kriteria extends Model
     // {
     //     return $this->hasMany(SubKriteria::class);
     // }
+
+     public function penilaians() {
+        return $this->hasMany(Penilaian::class);
+    }
 }

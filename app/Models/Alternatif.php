@@ -8,5 +8,7 @@ class Alternatif extends Model
 {
     protected $guarded = [];
 
-    
+    public function penilaians() {
+        return $this->hasMany(Penilaian::class);
+    }
 }

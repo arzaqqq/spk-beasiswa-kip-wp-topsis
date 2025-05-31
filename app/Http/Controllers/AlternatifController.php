@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AlternatifController extends Controller
 {
@@ -84,7 +85,9 @@ class AlternatifController extends Controller
 
     public function destroyall()
     {
-        Alternatif::truncate();
+        // Alternatif::truncate();
+        DB::table('alternatifs')->delete(); // bukan truncate
+
         return redirect()->route('alternatif.index')->with('success', 'Semua data alternatif berhasil dihapus.');
     }
 
