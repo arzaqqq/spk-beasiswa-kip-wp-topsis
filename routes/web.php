@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\PerhitunganController;
 
 Route::get('/', function () {
     return view('layouts.app');
@@ -36,3 +37,6 @@ Route::get('penilaian/{alternatif}/edit', [PenilaianController::class, 'edit'])-
 Route::put('penilaian/{alternatif}', [PenilaianController::class, 'update'])->name('penilaian.update');
 Route::delete('penilaian/{alternatif}', [PenilaianController::class, 'destroy'])->name('penilaian.destroy');
 
+
+Route::get('/perhitungan/wp', [PerhitunganController::class, 'wp'])->name('perhitungan.wp');
+Route::get('/perhitungan/topsis', [PerhitunganController::class, 'topsis'])->name('perhitungan.topsis');

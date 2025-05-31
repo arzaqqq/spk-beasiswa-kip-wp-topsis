@@ -21,7 +21,7 @@
             <tbody>
                 @foreach ($alternatifs as $a)
                     <tr>
-                        <td>{{ $a->nama }}</td>
+                        <td>{{ $a->kode }}</td>
                         @foreach ($kriterias as $k)
                             <td>
                                 {{ optional($a->penilaians->where('kriteria_id', $k->id)->first())->nilai ?? '-' }}
