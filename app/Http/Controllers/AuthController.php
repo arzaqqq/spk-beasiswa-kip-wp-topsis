@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Kriteria;
+use App\Models\Alternatif;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -62,8 +64,14 @@ class AuthController extends Controller
     // Show dashboard
     public function dashboard()
     {
-        return view('dashboard');
+        $totalKriteria = Kriteria::count();
+        $totalAlternatif = Alternatif::count();
+        // $diterima = Alternatif::where('score', '>=', 0.6)->count(); // Adjust threshold as needed
+        // $ditolak = Alternatif::where('score', '<', 0.6)->count();
+
+        return view('dashboard', compact('totalKriteria', 'totalAlternatif'));
     }
+
 
     // Handle logout
     public function logout(Request $request)

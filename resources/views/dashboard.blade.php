@@ -4,7 +4,7 @@
 @section('current-page', 'Dashboard')
 
 @section('content')
-<div class="container mx-auto px-4 py-6">
+<div class="py-6">
     <!-- Header Dashboard -->
     <div class="bg-blue-600 text-white rounded-lg shadow-md p-6 mb-6">
         <h1 class="text-2xl font-bold">Sistem Pendukung Keputusan</h1>
@@ -13,24 +13,24 @@
     </div>
 
     <!-- Statistik Cepat -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div class="bg-white rounded-lg shadow p-4">
-            <h3 class="text-gray-500 font-medium">Total Pendaftar</h3>
-            <p class="text-2xl font-bold">0</p>
-        </div>
-        <div class="bg-white rounded-lg shadow p-4">
-            <h3 class="text-gray-500 font-medium">Proses Seleksi</h3>
-            <p class="text-2xl font-bold">0</p>
-        </div>
-        <div class="bg-white rounded-lg shadow p-4">
-            <h3 class="text-gray-500 font-medium">Diterima</h3>
-            <p class="text-2xl font-bold">0</p>
-        </div>
-        <div class="bg-white rounded-lg shadow p-4">
-            <h3 class="text-gray-500 font-medium">Ditolak</h3>
-            <p class="text-2xl font-bold">0</p>
-        </div>
-    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="text-gray-500 font-medium">Total Kriteria</h3>
+                    <p class="text-2xl font-bold">{{ $totalKriteria }}</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="text-gray-500 font-medium">Total Alternatif</h3>
+                    <p class="text-2xl font-bold">{{ $totalAlternatif }}</p>
+                </div>
+                {{-- <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="text-gray-500 font-medium">Diterima</h3>
+                    <p class="text-2xl font-bold">{{ $diterima }}</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="text-gray-500 font-medium">Ditolak</h3>
+                    <p class="text-2xl font-bold">{{ $ditolak }}</p> --}}
+                </div>
+            </div>
 
     <!-- Tabel Kriteria -->
     <div class="bg-white rounded-lg shadow-md p-6 mb-6">
