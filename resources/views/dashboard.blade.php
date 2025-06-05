@@ -6,7 +6,7 @@
 @section('content')
 <div class="py-6">
     <!-- Header Dashboard -->
-    <div class="bg-blue-600 text-white rounded-lg shadow-md p-6 mb-6">
+    <div class=" bg-green-600 text-white rounded-lg shadow-md p-6 mb-6">
         <h1 class="text-2xl font-bold">Sistem Pendukung Keputusan</h1>
         <h2 class="text-xl">Seleksi Penerima Beasiswa KIP</h2>
         <p class="mt-2">Universitas Malikussaleh</p>
