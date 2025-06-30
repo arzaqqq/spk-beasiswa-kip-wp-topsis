@@ -71,6 +71,27 @@
     <!-- /.card-body -->
 </div>
 
+    <!-- Modal peringatan total bobot -->
+    @if ($totalBobot > 1.000)
+    <div class="modal fade" id="bobotWarningModal" tabindex="-1" role="dialog" aria-labelledby="bobotWarningLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="bobotWarningLabel">Peringatan!</h5>
+        </div>
+        <div class="modal-body">
+            <strong>Jumlah total bobot melebihi 1.000!</strong><br>
+            Saat ini: <strong>{{ number_format($totalBobot, 3) }}</strong><br>
+            Silakan sesuaikan kembali bobot kriteria Anda.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Tutup</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    @endif
+
 
 @endsection
 @push('scripts')
@@ -99,4 +120,13 @@
             table.buttons().container().appendTo('#kriteriaTable_wrapper .col-md-6:eq(0)');
         });
     </script>
+
+    @if ($totalBobot > 1.000)
+<script>
+    $(document).ready(function () {
+        $('#bobotWarningModal').modal('show');
+    });
+</script>
+@endif
+
 @endpush
