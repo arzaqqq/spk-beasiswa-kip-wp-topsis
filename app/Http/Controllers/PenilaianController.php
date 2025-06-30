@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Kriteria;
 use App\Models\Penilaian;
 use App\Models\Alternatif;

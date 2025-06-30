@@ -7,6 +7,7 @@ use App\Models\Penilaian;
 use App\Models\Alternatif;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 
 class PerhitunganController extends Controller
 {
