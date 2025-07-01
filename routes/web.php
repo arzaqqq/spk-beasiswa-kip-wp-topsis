@@ -6,6 +6,7 @@ use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\PerhitunganController;
+use App\Http\Controllers\TemporaryAlternatifController;
 
 
 
@@ -55,4 +56,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+    Route::get('/temporary', [TemporaryAlternatifController::class, 'index'])->name('temporary.index');
+Route::post('/temporary/import', [TemporaryAlternatifController::class, 'import'])->name('temporary.import');
+Route::get('/temporary/preview', [TemporaryAlternatifController::class, 'preview'])->name('temporary.preview');
+Route::post('/temporary/store-selected', [TemporaryAlternatifController::class, 'storeSelected'])->name('temporary.storeSelected');
 });
