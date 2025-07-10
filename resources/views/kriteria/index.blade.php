@@ -72,7 +72,7 @@
 </div>
 
     <!-- Modal peringatan total bobot -->
-    @if ($totalBobot > 1.000)
+    @if ($totalBobot != 1.000)
     <div class="modal fade" id="bobotWarningModal" tabindex="-1" role="dialog" aria-labelledby="bobotWarningLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -121,7 +121,7 @@
         });
     </script>
 
-    @if ($totalBobot > 1.000)
+    @if ($totalBobot != 1.000)
 <script>
     $(document).ready(function () {
         $('#bobotWarningModal').modal('show');
