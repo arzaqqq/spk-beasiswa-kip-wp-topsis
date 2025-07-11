@@ -9,7 +9,7 @@
     <div class="mb-8">
         <h3 class="text-xl font-semibold mb-2">Normalisasi Bobot</h3>
         <table class="table table-bordered w-full">
-            <thead class="bg-gray-200">
+            <thead>
                 <tr>
                     <th>Kode</th>
                     <th>Nama</th>
@@ -36,7 +36,7 @@
     <div class="mb-8">
         <h3 class="text-xl font-semibold mb-2">Matriks Penilaian</h3>
         <table class="table table-bordered w-full">
-            <thead class="bg-gray-200">
+            <thead>
                 <tr>
                     <th>Alternatif</th>
                     @foreach($kriterias as $k)
@@ -67,7 +67,7 @@
     <div class="mb-8">
         <h3 class="text-xl font-semibold mb-2">Nilai S (Product WP)</h3>
         <table class="table table-bordered w-full">
-            <thead class="bg-gray-200">
+            <thead>
                 <tr>
                     <th>Alternatif</th>
                     <th>Nilai S</th>
@@ -88,7 +88,7 @@
     <div class="mb-8">
         <h3 class="text-xl font-semibold mb-2">Nilai Preferensi (V)</h3>
         <table class="table table-bordered w-full">
-            <thead class="bg-gray-200">
+            <thead>
                 <tr>
                     <th>Alternatif</th>
                     <th>Nilai V</th>
@@ -109,7 +109,7 @@
     <div class="mb-8">
         <h3 class="text-xl font-semibold mb-2">Ranking</h3>
         <table class="table table-bordered w-full">
-            <thead class="bg-gray-200">
+            <thead>
                 <tr>
                     <th>Peringkat</th>
                     <th>Alternatif</th>
